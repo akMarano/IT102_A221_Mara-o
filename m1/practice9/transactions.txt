@@ -13,3 +13,68 @@ Account: Arem Kein I. Maraño
 Transaction: Withdraw
 Amount: ₱200.00
 
+Timestamp: 2026-09-03 17:11:04
+Account: Arem Kein I. Maraño
+Transaction: Withdraw
+Amount: ₱200.00
+
+Timestamp: 2026-09-03 17:11:13
+Account: Arem Kein I. Maraño
+Transaction: Deposit
+Amount: ₱5000.00
+
+Timestamp: 2026-09-03 17:13:24
+Account: Arem Kein I. Maraño
+Transaction: Deposit
+Amount: ₱5000.00
+
+Timestamp: 2026-09-03 17:14:06
+Account: Arem Kein I. Maraño
+Transaction: Deposit
+Amount: ₱4600.00
+
+Timestamp: 2026-09-03 17:14:15
+Account: Arem Kein I. Maraño
+Transaction: Deposit
+Amount: ₱4000.00
+
+Timestamp: 2026-09-03 17:22:20
+Account: Arem Kein I. Maraño
+Transaction: Withdraw
+Amount: ₱4000.00
+
+Timestamp: 2026-09-03 17:23:05
+Account: Arem Kein I. Maraño
+Transaction: Withdraw
+Amount: ₱4000.00
+
+Timestamp: 2026-09-03 17:23:09
+Account: Arem Kein I. Maraño
+Transaction: Withdraw
+Amount: ₱3000.00
+
+Timestamp: 2026-09-03 17:33:26
+Account: Arem Kein I. Maraño
+Transaction: Deposit
+Amount: ₱5000.00
+
+Timestamp: 2026-09-03 17:33:36
+Account: Arem Kein I. Maraño
+Transaction: Withdraw
+Amount: ₱4000.00
+
+Timestamp: 2026-09-03 17:39:17
+Account: Arem Kein I. Maraño
+Transaction: Deposit
+Amount: ₱1000.00
+
+Timestamp: 2026-09-03 17:39:47
+Account: Arem Kein I. Maraño
+Transaction: Withdraw
+Amount: ₱2000.00
+
+Timestamp: 2026-09-03 17:40:32
+Account: Arem Kein I. Maraño
+Transaction: Deposit
+Amount: ₱250.00
+

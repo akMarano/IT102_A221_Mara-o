@@ -36,9 +36,6 @@ def withdraw_money(account, amount):
 
     return False
 
-account = Account("Arem Kein I. Maraño", 1000.0)
-withdraw_money(account, 200.0)
-
 """
 ######### Learning Signature ######### 
 Programmed by: Arem Kein I. Maraño

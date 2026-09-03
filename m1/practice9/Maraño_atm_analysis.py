@@ -133,9 +133,7 @@ def analyze_transactions():
         "largest_transaction": largest_transaction
     }
 
-analysis = analyze_transactions()
-for key, value in analysis.items():
-    print(f"{key}: {value}")
+
 
 """
 ######### Learning Signature ######### 
