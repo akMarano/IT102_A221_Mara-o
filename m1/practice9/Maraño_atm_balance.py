@@ -1,7 +1,6 @@
 def check_balance(account):
     return account.check_balance()
 
-
 """
 ######### Learning Signature ######### 
 Programmed by: Arem Kein I. Maraño

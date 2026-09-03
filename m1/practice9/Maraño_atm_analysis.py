@@ -62,79 +62,48 @@ def analyze_transactions():
             except ValueError:
                 current["amount"] = 0.0
 
-            # Only add a transaction if the
-            # required information exists.
             if "type" in current and "amount" in current:
 
                 transactions.append(current.copy())
 
             current = {}
 
-
-    # ==========================================
-    # ANALYSIS 1
-    # TRANSACTION SUMMARY
-    # ==========================================
-
     total_transactions = len(transactions)
 
     deposits = 0
     withdrawals = 0
 
-
-    # ==========================================
-    # ANALYSIS 2
-    # TRANSACTION AMOUNT ANALYSIS
-    # ==========================================
-
     total_deposited = 0
     total_withdrawn = 0
     largest_transaction = 0
 
-
-    # ==========================================
-    # ANALYSIS 3
-    # ACCOUNT ACTIVITY ANALYSIS
-    # ==========================================
-
     latest_transaction = "None"
     latest_timestamp = "None"
-
 
     for transaction in transactions:
 
         transaction_type = transaction["type"]
         amount = transaction["amount"]
 
-        # Count deposits
         if transaction_type == "Deposit":
 
             deposits += 1
             total_deposited += amount
 
-        # Count withdrawals
         elif transaction_type == "Withdraw":
 
             withdrawals += 1
             total_withdrawn += amount
 
-
-        # Find largest transaction
         if amount > largest_transaction:
 
             largest_transaction = amount
 
-
-        # Get latest transaction
         latest_transaction = transaction_type
 
-        # Timestamp may not exist in old records
         if "timestamp" in transaction:
 
             latest_timestamp = transaction["timestamp"]
-
-
-    # Calculate average transaction amount
 
     if total_transactions > 0:
 
@@ -164,12 +133,17 @@ def analyze_transactions():
         "largest_transaction": largest_transaction
     }
 
+analysis = analyze_transactions()
+for key, value in analysis.items():
+    print(f"{key}: {value}")
+
 """
 ######### Learning Signature ######### 
 Programmed by: Arem Kein I. Maraño
 Date Submitted: September 3, 2026
  
-Program Description: This program simulates a simple ATM account system where users can analyze their transaction history.
+Program Description: This program simulates a simple ATM account system where users can analyze their transaction history. 
+                    It reads transaction data from a text file and provides a summary of the transactions.
 Reflection: I learned how to implement basic banking operations using object-oriented programming in Python.
 AI Usage
 [/] No AI Assistance - Completed independently without AI.

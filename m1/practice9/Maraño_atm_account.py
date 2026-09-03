@@ -5,7 +5,7 @@ class Account:
         self._balance = starting_balance
  
     def check_balance(self):
-        print(f"Current Balance: ₱{self._balance:.2f}")
+        return self._balance
  
     def deposit(self, amount):
 
@@ -23,7 +23,6 @@ class Account:
             return True
         return False  
 
-account = Account("Arem Kein I. Maraño", 1000.00)
 """
 ######### Learning Signature ######### 
 Programmed by: Arem Kein I. Maraño
