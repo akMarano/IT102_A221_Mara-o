@@ -1,0 +1,5 @@
+Timestamp: 2026-09-03 07:09:20
+Account: Arem Kein I. Maraño
+Transaction: Withdraw
+Amount: ₱200.00
+

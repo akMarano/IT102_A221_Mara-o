@@ -1,5 +1,5 @@
 from datetime import datetime
-
+from Maraño_atm_account import Account
 def deposit_money(account, amount):
 
     if amount <= 0:
@@ -34,8 +34,6 @@ def deposit_money(account, amount):
         return True
 
     return False
-
-
 
 """
 ######### Learning Signature ######### 

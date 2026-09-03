@@ -37,7 +37,7 @@ def withdraw_money(account, amount):
     return False
 
 account = Account("Arem Kein I. Maraño", 1000.0)
-account.withdraw(200.0)
+withdraw_money(account, 200.0)
 
 """
 ######### Learning Signature ######### 
