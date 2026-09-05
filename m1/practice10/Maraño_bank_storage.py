@@ -1,3 +1,4 @@
+from m1.practice10 import Maraño_bank_utils
 from m1.practice10.Maraño_bank_account import (
     SavingsAccount,
     StudentAccount
@@ -71,7 +72,7 @@ def save_account(account):
 
         file.write(
             f"Balance: "
-            f"{account.check_balance():.2f}\n\n"
+            f"{Maraño_bank_utils.format_currency(account.check_balance())}\n\n"
         )
 
 
@@ -158,6 +159,14 @@ def load_accounts():
 
             current["balance"] = float(
                 balance_text
+                .replace(
+                    "₱",
+                    ""
+                )
+                .replace(
+                    ",",
+                    ""
+                )
             )
 
             if (
@@ -230,9 +239,7 @@ def update_account(account):
                 == account.account_number
             ):
 
-                saved_account._balance = (
-                    account.check_balance()
-                )
+                saved_account = account
 
             file.write(
                 f"Account Number: "
@@ -256,5 +263,22 @@ def update_account(account):
 
             file.write(
                 f"Balance: "
-                f"{saved_account.check_balance():.2f}\n\n"
+                f"{Maraño_bank_utils.format_currency(saved_account.check_balance())}\n\n"
             )
+
+"""
+######### Learning Signature ######### 
+Programmed by: Arem Kein I. Maraño
+Date Submitted: September 5, 2026
+ 
+Program Description: I changed saved_account._balance = account.check_balance() to saved_account = account 
+                     so the balance update flows through the account's own deposit()/withdraw() methods instead 
+                     of writing directly to the private _balance attribute from outside the class."
+
+Reflection: I learned that reaching into _balance from another module defeats the purpose of marking it private, 
+            so keeping the update inside the object's own methods protects the class from bugs introduced by outside code.
+AI Usage
+[/] No AI Assistance - Completed independently without AI.
+[ ] AI as Support Tool - Used AI for explanations, syntax, or minor corrections.
+[ ] AI as Collaborative Partner - Used AI to design, structure, or co-create significant code.
+"""

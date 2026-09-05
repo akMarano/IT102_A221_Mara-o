@@ -1,5 +1,7 @@
 from datetime import datetime
 
+from m1.practice10 import Maraño_bank_utils
+
 
 TRANSACTIONS_FILE = "transactions.txt"
 
@@ -45,16 +47,15 @@ def record_transaction(
 
         file.write(
             f"Amount: "
-            f"₱{amount:.2f}\n"
+            f"{Maraño_bank_utils.format_currency(amount)}\n"
         )
 
         file.write(
             f"Balance After: "
-            f"₱{account.check_balance():.2f}\n"
+            f"{Maraño_bank_utils.format_currency(account.check_balance())}\n"
         )
 
         file.write("\n")
-
 
 def get_transactions():
 
@@ -204,3 +205,21 @@ def get_transactions():
             current = {}
 
     return transactions
+
+"""
+######### Learning Signature ######### 
+Programmed by: Arem Kein I. Maraño
+Date Submitted: September 5, 2026
+
+Program Description: I changed the hand-written f'₱{amount:.2f}' formatting in record_transaction() to 
+                      call Maraño_bank_utils.format_currency(amount) instead, reusing the same helper the 
+                      rest of the app already relies on.
+                      
+Reflection: I learned that duplicating formatting logic across files creates a maintenance risk,
+            if the currency format ever needs to change, relying on one shared function means I'd 
+            only have to update it in a single place.
+AI Usage
+[/] No AI Assistance - Completed independently without AI.
+[ ] AI as Support Tool - Used AI for explanations, syntax, or minor corrections.
+[ ] AI as Collaborative Partner - Used AI to design, structure, or co-create significant code.
+"""

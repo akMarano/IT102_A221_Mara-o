@@ -1,0 +1,10 @@
+[theme]
+base = "light"
+primaryColor = "#953fe0"
+backgroundColor = "#241653"
+secondaryBackgroundColor = "#6c428c"
+textColor = "#F5F5F5"
+font = "sans-serif"
+headingFont = "sans-serif"
+codeFont = "monospace"
+baseFontSize = 18
