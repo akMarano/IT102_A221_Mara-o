@@ -3,15 +3,6 @@ from datetime import datetime
 import m1.practice10.Maraño_bank_transactions as Maraño_bank_transactions
 import m1.practice10.Maraño_bank_utils as Maraño_bank_utils
 
-
-# Feature: Account Statement Export
-#
-# Builds a plain-text statement of an account's transactions
-# within a chosen date range, with a money-in/money-out summary,
-# so it can be shown on screen or downloaded as a file. Reuses
-# the existing transactions module instead of reading any file
-# directly.
-
 def generate_statement(
     account,
     start_date,
@@ -166,16 +157,12 @@ def generate_statement(
 Programmed by: Arem Kein I. Maraño
 Date Submitted: September 6, 2026
 
-Program Description: New feature module for Account Statement Export. Filters the
-                    account's transactions to a chosen date range using the
-                    existing transactions module, tallies money in vs. money out,
-                    and formats everything into a downloadable plain-text
-                    statement.
+Program Description: New feature module for Account Statement Export. Filters the account's transactions to a chosen date range using the 
+                     existing transactions module, tallies money in vs. money out, and formats everything into a downloadable plain-text
+                     statement.
 
-Reflection: This feature didn't need any new persistence or changes to the account
-            object, since transaction history is already logged; it only needed
-            to read, filter, and format data the rest of the app already collects,
-            the same way the analysis module summarizes transactions without
+Reflection: This feature didn't need any new persistence or changes to the account object, since transaction history is already logged; it only needed
+            to read, filter, and format data the rest of the app already collects, the same way the analysis module summarizes transactions without
             touching storage.
 AI Usage
 [ ] No AI Assistance - Completed independently without AI.

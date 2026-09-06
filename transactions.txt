@@ -63,3 +63,19 @@ Transaction: Transfer In (from 2023)
 Amount: ₱5,000.00
 Balance After: ₱12,000.00
 
+Timestamp: 2026-09-06 03:00:44
+Account Number: 2023
+Account: Arem
+Account Type: Student Account
+Transaction: Transfer Out (to 2023110007)
+Amount: ₱2,000.00
+Balance After: ₱7,000.00
+
+Timestamp: 2026-09-06 03:00:44
+Account Number: 2023110007
+Account: Arem Kein I. Maraño
+Account Type: Student Account
+Transaction: Transfer In (from 2023)
+Amount: ₱2,000.00
+Balance After: ₱14,000.00
+

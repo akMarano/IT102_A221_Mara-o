@@ -2,15 +2,6 @@ import m1.practice10.Maraño_bank_storage as Maraño_bank_storage
 import m1.practice10.Maraño_bank_transactions as Maraño_bank_transactions
 import m1.practice10.Maraño_bank_utils as Maraño_bank_utils
 
-
-# Feature: Money Transfer
-#
-# Moves funds from the logged-in account to another
-# existing account on file. Reuses the account's own
-# deposit()/withdraw() methods so encapsulation is
-# respected, and reuses the existing storage and
-# transaction modules instead of duplicating logic.
-
 def transfer_funds(
     sender_account,
     recipient_account_number,
