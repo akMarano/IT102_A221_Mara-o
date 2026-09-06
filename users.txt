@@ -1,12 +1,12 @@
-Account Number: 2023110007
-Account Name: Arem Kein I. Maraño
-PIN: 0819
+Account Number: 2023110766
+Account Name: Elizabeth Maude M. Lara
+PIN: 0127
 Account Type: Student Account
-Balance: ₱14,000.00
+Balance: ₱11,000.00
 
-Account Number: 2023
-Account Name: Arem
+Account Number: 2023110007
+Account Name: Arem Kein I. Marano
 PIN: 1234
-Account Type: Student Account
-Balance: ₱7,000.00
+Account Type: Savings Account
+Balance: ₱5,000.00
 
