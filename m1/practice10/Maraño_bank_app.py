@@ -21,6 +21,8 @@ import m1.practice10.Maraño_bank_storage as Maraño_bank_storage
 import m1.practice10.Maraño_bank_transactions as Maraño_bank_transactions
 import m1.practice10.Maraño_bank_analysis as Maraño_bank_analysis
 import m1.practice10.Maraño_bank_utils as Maraño_bank_utils
+import m1.practice10.Maraño_bank_transfer as Maraño_bank_transfer
+import m1.practice10.Maraño_bank_statement as Maraño_bank_statement
 
 
 # ==========================================
@@ -406,6 +408,45 @@ else:
             ):
 
                 st.session_state.page = "Transaction Analysis"
+
+                st.rerun()
+
+        st.write("")
+
+        action2_col1, action2_col2, action2_col3 = st.columns(3)
+
+        with action2_col1:
+
+            if st.button(
+                "Transfer Funds",
+                use_container_width=True,
+                type="primary"
+            ):
+
+                st.session_state.page = "Transfer Funds"
+
+                st.rerun()
+
+        with action2_col2:
+
+            if st.button(
+                "Account Statement",
+                use_container_width=True,
+                type="primary"
+            ):
+
+                st.session_state.page = "Account Statement"
+
+                st.rerun()
+
+        with action2_col3:
+
+            if st.button(
+                "Change PIN",
+                use_container_width=True
+            ):
+
+                st.session_state.page = "Change PIN"
 
                 st.rerun()
 
@@ -804,5 +845,217 @@ else:
                     f"Latest Activity: "
                     f"{result['latest_timestamp']}"
                 )
+
+
+        # ==================================
+        # TRANSFER FUNDS
+        # ==================================
+
+        elif page == "Transfer Funds":
+
+            st.header("Transfer Funds")
+
+            left, right = st.columns([2, 1])
+
+            with right:
+
+                with st.container(border=True):
+
+                    st.caption("Available Balance")
+
+                    st.subheader(
+                        Maraño_bank_utils.format_currency(
+                            account.check_balance()
+                        )
+                    )
+
+            with left:
+
+                with st.container(border=True):
+
+                    with st.form("transfer_form", border=False):
+
+                        recipient_account_number = st.text_input(
+                            "Recipient Account Number",
+                            placeholder="e.g. 000123456"
+                        )
+
+                        amount = st.number_input(
+                            "Transfer Amount",
+                            min_value=0.0,
+                            step=100.0,
+                            format="%.2f"
+                        )
+
+                        transfer_submitted = st.form_submit_button(
+                            "Confirm Transfer",
+                            use_container_width=True,
+                            type="primary"
+                        )
+
+                    if transfer_submitted:
+
+                        success, message = (
+                            Maraño_bank_transfer
+                            .transfer_funds(
+                                account,
+                                recipient_account_number,
+                                amount
+                            )
+                        )
+
+                        if success:
+
+                            st.success(message)
+
+                            st.metric(
+                                "New Balance",
+                                Maraño_bank_utils
+                                .format_currency(
+                                    account.check_balance()
+                                )
+                            )
+
+                        else:
+
+                            st.error(message)
+
+
+        # ==================================
+        # ACCOUNT STATEMENT
+        # ==================================
+
+        elif page == "Account Statement":
+
+            st.header("Account Statement")
+
+            st.caption(
+                "Export your transaction history "
+                "for a chosen date range."
+            )
+
+            with st.container(border=True):
+
+                with st.form("statement_form", border=False):
+
+                    date_col1, date_col2 = st.columns(2)
+
+                    with date_col1:
+
+                        start_date = st.date_input(
+                            "Start Date"
+                        )
+
+                    with date_col2:
+
+                        end_date = st.date_input(
+                            "End Date"
+                        )
+
+                    statement_submitted = st.form_submit_button(
+                        "Generate Statement",
+                        use_container_width=True,
+                        type="primary"
+                    )
+
+                if statement_submitted:
+
+                    success, message, statement_text = (
+                        Maraño_bank_statement
+                        .generate_statement(
+                            account,
+                            start_date,
+                            end_date
+                        )
+                    )
+
+                    if success:
+
+                        st.success(message)
+
+                        st.code(
+                            statement_text,
+                            language=None
+                        )
+
+                        st.download_button(
+                            "Download Statement",
+                            data=statement_text,
+                            file_name=(
+                                f"statement_{account.account_number}"
+                                f"_{start_date}_{end_date}.txt"
+                            ),
+                            mime="text/plain",
+                            use_container_width=True,
+                            type="primary"
+                        )
+
+                    else:
+
+                        st.error(message)
+
+
+        # ==================================
+        # CHANGE PIN
+        # ==================================
+
+        elif page == "Change PIN":
+
+            st.header("Change PIN")
+
+            center_left, center, center_right = st.columns(
+                [1, 2, 1]
+            )
+
+            with center:
+
+                with st.container(border=True):
+
+                    with st.form("change_pin_form", border=False):
+
+                        old_pin = st.text_input(
+                            "Current PIN",
+                            type="password"
+                        )
+
+                        new_pin = st.text_input(
+                            "New 4-Digit PIN",
+                            type="password"
+                        )
+
+                        confirm_new_pin = st.text_input(
+                            "Confirm New PIN",
+                            type="password"
+                        )
+
+                        change_pin_submitted = st.form_submit_button(
+                            "Update PIN",
+                            use_container_width=True,
+                            type="primary"
+                        )
+
+                    if change_pin_submitted:
+
+                        success, message = (
+                            Maraño_bank_auth
+                            .change_pin(
+                                account,
+                                old_pin,
+                                new_pin,
+                                confirm_new_pin
+                            )
+                        )
+
+                        if success:
+
+                            Maraño_bank_storage.update_account(
+                                account
+                            )
+
+                            st.success(message)
+
+                        else:
+
+                            st.error(message)
 
 

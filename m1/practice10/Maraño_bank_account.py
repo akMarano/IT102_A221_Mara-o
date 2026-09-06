@@ -46,11 +46,18 @@ class BankAccount(ABC):
 
         return self._pin == pin
 
-    # Used by storage when the account
-    # needs to be saved.
     def get_pin(self):
 
         return self._pin
+
+    def change_pin(self, old_pin, new_pin):
+
+        if self._pin != old_pin:
+            return False
+
+        self._pin = new_pin
+
+        return True
 
     # Abstraction
     @abstractmethod

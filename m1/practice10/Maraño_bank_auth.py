@@ -114,3 +114,44 @@ def login_account(
         )
 
     return account, "Login successful."
+
+
+# Feature: Change PIN
+def change_pin(
+    account,
+    old_pin,
+    new_pin,
+    confirm_new_pin
+):
+
+    old_pin = old_pin.strip()
+    new_pin = new_pin.strip()
+    confirm_new_pin = confirm_new_pin.strip()
+
+    if not account.verify_pin(old_pin):
+
+        return False, "Current PIN is incorrect."
+
+    if not validate_pin(new_pin):
+
+        return False, (
+            "New PIN must contain exactly "
+            "4 digits."
+        )
+
+    if new_pin != confirm_new_pin:
+
+        return False, (
+            "New PIN confirmation does not match."
+        )
+
+    if new_pin == old_pin:
+
+        return False, (
+            "New PIN must be different "
+            "from the current PIN."
+        )
+
+    account.change_pin(old_pin, new_pin)
+
+    return True, "PIN updated successfully."

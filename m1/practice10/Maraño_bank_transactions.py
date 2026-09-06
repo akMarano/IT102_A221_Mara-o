@@ -18,7 +18,8 @@ def record_transaction(
 
     with open(
         TRANSACTIONS_FILE,
-        "a"
+        "a",
+        encoding="utf-8"
     ) as file:
 
         file.write(
@@ -65,7 +66,8 @@ def get_transactions():
 
         with open(
             TRANSACTIONS_FILE,
-            "r"
+            "r",
+            encoding="utf-8"
         ) as file:
 
             lines = file.readlines()

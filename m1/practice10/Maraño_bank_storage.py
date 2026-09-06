@@ -14,7 +14,8 @@ def account_exists(account_number):
 
         with open(
             USERS_FILE,
-            "r"
+            "r",
+            encoding="utf-8"
         ) as file:
 
             for line in file:
@@ -47,7 +48,8 @@ def save_account(account):
 
     with open(
         USERS_FILE,
-        "a"
+        "a",
+        encoding="utf-8"
     ) as file:
 
         file.write(
@@ -84,7 +86,8 @@ def load_accounts():
 
         with open(
             USERS_FILE,
-            "r"
+            "r",
+            encoding="utf-8"
         ) as file:
 
             lines = file.readlines()
@@ -229,7 +232,8 @@ def update_account(account):
 
     with open(
         USERS_FILE,
-        "w"
+        "w",
+        encoding="utf-8"
     ) as file:
 
         for saved_account in accounts:
