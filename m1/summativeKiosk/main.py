@@ -1,6 +1,22 @@
+"""
+######### Learning Signature ######### 
+Programmed by: Arem Kein I. Maraño
+Date Submitted: September 10, 2026
+ 
+Program Description: This is a simple snack kiosk UI that allows users to select an item, 
+                     input the amount of money they have, and process the transaction to determine if 
+                     they have sufficient funds and calculate any change due.
+
+Reflection: I applied the knowledge I gained from the previous lessons on Streamlit, Python classes, 
+            and basic arithmetic operations to create a functional snack kiosk application. 
+
+[/] No AI Assistance - Completed independently without AI.
+[ ] AI as Support Tool - Used AI for explanations, syntax, or minor corrections.
+[ ] AI as Collaborative Partner - Used AI to design, structure, or co-create significant code.
+"""
+
 import streamlit as st
 from transaction import Transaction
-
 
 st.title("Snack Kiosk")
  
