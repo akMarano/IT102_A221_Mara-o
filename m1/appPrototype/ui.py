@@ -150,7 +150,7 @@ st.markdown(
         height: 38px !important;
     }
 
-    /* ---------- sidebar ---------- */
+
     section[data-testid="stSidebar"] {
         border-right: 2px solid #000000;
     }
