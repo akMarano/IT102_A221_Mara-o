@@ -9,10 +9,9 @@ DAYS = ["S", "M", "T", "W", "T", "F", "S"]
 
 st.set_page_config(page_title="RideShare", layout="wide")
 
-# ---------- session state ----------
 if "processor" not in st.session_state:
     st.session_state.processor = RideProcessor()
-    # seed a little sample data so the dashboard grid has something to show
+    # Sample Data
     sample_drivers = [
         User("Maria Santos", 4.9, 128),
         User("Carlo Reyes", 4.7, 64),
@@ -79,7 +78,6 @@ def toggle_sidebar():
     st.session_state.sidebar_open = not st.session_state.sidebar_open
 
 
-# ---------- shared styling ----------
 st.markdown(
     """
     <style>
@@ -238,14 +236,13 @@ def back_button():
         st.button("☰", key=f"menu_{st.session_state.page}", on_click=toggle_sidebar)
 
 
-# ---------- Sidebar ----------
 def show_sidebar():
     with st.sidebar:
         st.markdown(
             """
             <div class="profile-block">
                 <div class="profile-avatar">👤</div>
-                <div class="profile-name">Juan Dela Cruz</div>
+                <div class="profile-name">Arem Kein I. Marano</div>
                 <div class="profile-sub">Profile Details</div>
             </div>
             """,
@@ -263,14 +260,12 @@ def show_sidebar():
             st.button("🚗  Ride History", key="nav_history", use_container_width=True)
             st.button("💬  Ride Chats", key="nav_chats", use_container_width=True)
 
-        # spacer to push Logout to the bottom of the sidebar
         st.markdown("<div style='height: 260px;'></div>", unsafe_allow_html=True)
 
         with st.container(key="logout_block"):
             st.button("Logout", key="logout_button", use_container_width=True)
 
 
-# ---------- Dashboard (left panel in the wireframe) ----------
 def show_dashboard():
     st.button("☰", key="menu_button", on_click=toggle_sidebar)
 
@@ -372,8 +367,6 @@ def show_dashboard():
                     use_container_width=True,
                 )
 
-
-# ---------- Post Ride Offer (top middle in the wireframe) ----------
 def show_post_offer():
     back_button()
     st.title("Post Ride Offer")
@@ -445,8 +438,6 @@ def show_post_offer():
         st.session_state.offer_seats = 1
         go_to("dashboard")
 
-
-# ---------- Post Ride Request (top right in the wireframe) ----------
 def show_post_request():
     back_button()
     st.title("Post Ride Request")
@@ -489,8 +480,6 @@ def show_post_request():
         processor.submit_request(request)
         go_to("dashboard")
 
-
-# ---------- Ride Details (bottom middle in the wireframe) ----------
 def show_ride_details():
     back_button()
     offer = st.session_state.selected_offer
@@ -523,7 +512,6 @@ def show_ride_details():
         st.text_area("Driver's Notes", value=offer.notes, disabled=True)
 
 
-# ---------- Ride Request Details ----------
 def show_request_details():
     back_button()
     request = st.session_state.selected_request
