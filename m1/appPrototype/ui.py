@@ -7,7 +7,7 @@ from ride_processing import RideProcessor, RideOffer, RideRequest
 
 DAYS = ["S", "M", "T", "W", "T", "F", "S"]
 
-st.set_page_config(page_title="RideShare", layout="wide")
+st.set_page_config(page_title="SabaySakay", layout="wide")
 
 if "processor" not in st.session_state:
     st.session_state.processor = RideProcessor()
