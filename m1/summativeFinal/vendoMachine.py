@@ -2,7 +2,7 @@ from container import Container
 from transaction import Transaction
 
 class VendoMachine:
-    DENOMINATIONS = [20, 10, 5, 1]
+    denominations = [20, 10, 5, 1]
 
     def __init__(self):
         self.containers = {
@@ -17,7 +17,7 @@ class VendoMachine:
     def compute_breakdown(self, change):
         breakdown = {}
         remaining = change
-        for bill in self.DENOMINATIONS:
+        for bill in self.denominations:
             count = remaining // bill
             breakdown[bill] = count
             remaining -= count * bill

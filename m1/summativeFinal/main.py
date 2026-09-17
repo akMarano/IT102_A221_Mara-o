@@ -2,7 +2,7 @@ import streamlit as st
 from vendoMachine import VendoMachine
 
 def main():
-    st.set_page_config(page_title="Water Refilling Vendo", page_icon="💧")
+    st.set_page_config(page_title="Water Refilling Vendo")
     st.title("Water Refilling Vendo Machine")
 
     if "vendo" not in st.session_state:
